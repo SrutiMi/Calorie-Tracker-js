@@ -7,13 +7,14 @@ const timeInput = parseFloat(localStorage.getItem('timeInput'));
 
 
 function calculateCaloriesBurnt(MET){
-  const caloriesBurnt=(MET*weightInput*timeInput);
-  return caloriesBurnt;
+  const caloriesBurntTotal=(MET*weightInput*timeInput);
+  console.log(caloriesBurntTotal);
+  return caloriesBurntTotal;
 }
 
 document.querySelector('.name').innerHTML=nameInput;
 
-let caloriesBurnt=0;
+let caloriesBurnt;
 switch( activityInput ) {
   case 'Slow_pace':
     caloriesBurnt=calculateCaloriesBurnt(2.0);
@@ -21,7 +22,7 @@ switch( activityInput ) {
     
     break;
   case 'Average_pace':
-    const caloriesBurnt=calculateCaloriesBurnt(2.8);
+    caloriesBurnt=calculateCaloriesBurnt(2.8);
     document.querySelector('.calories').innerHTML=caloriesBurnt.toFixed(2);
     break;
   case 'Brisk_pace':
